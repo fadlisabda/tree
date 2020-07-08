@@ -58,7 +58,7 @@ void BST::findmin(){//fungsi untuk mencari nilai terkecil didalam binarysearchtr
         cout<<"No Data"<<endl;//menampilkan pesan No Data
     }
     else{//jika binarysearchtree berisi menjalankan else
-        while (temp->left!=NULL)//jika tidak sama dengan NULL false jadi true
+        while (temp->left!=NULL)
         {
             temp=temp->left;//menelusuri node sebelah kiri sampai ditemukan NULL
         }
@@ -67,18 +67,18 @@ void BST::findmin(){//fungsi untuk mencari nilai terkecil didalam binarysearchtr
     }
 }
 
-void BST::findmax(){
+void BST::findmax(){//fungsi untuk mencari nilai terbesar didalam binarysearchtree
     tree *temp;
-    temp=root;
-    if(isempty()==1){
-        cout<<"No Data"<<endl;
+    temp=root;//duplikasi dari root
+    if(isempty()==1){//jika binarysearchtree kosong 
+        cout<<"No Data"<<endl;//menampilkan pesan No Data
     }
-    else{
+    else{//jika binarysearchtree berisi menjalankan else
         while (temp->right!=NULL)
         {
-            temp=temp->right;
+            temp=temp->right;//penelusuran ke node sebelah kanan sampai ditemukan null
         }
-        cout<<"Nilai terbesar adalah : "<<temp->value<<endl;
+        cout<<"Nilai terbesar adalah : "<<temp->value<<endl;//menampilkan nilai terbesar
         cout<<endl;
     }
 }
