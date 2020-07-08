@@ -20,6 +20,27 @@ class tree //class tree sebagai penyimpan nilai pada node yang dibuat
 
 tree *root;//membuat node root yang bersifat global
 
+class BST{//class untuk menyimpan fungsi prototype untuk membuat binarysearchtree
+    public://fungsi bersifat public
+        BST(){
+            root=NULL;
+        }
+        void cekroot();
+        int isempty();
+        void insert(int i);
+        void searching(int i);
+        void deletion(int i);
+        void findmin();
+        void findmax();
+        void urut();
+        void display(tree *val,int i);
+    private://fungsi bersifat private
+        void insertx(int i,tree *temp);
+        void uruttree(tree *n);
+        void transplanted(tree *del,tree*reply);
+        void minvalue(tree *n);
+};
+
 int main(){
     
     return 0;
