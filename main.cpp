@@ -41,6 +41,33 @@ class BST{//class untuk menyimpan fungsi prototype untuk membuat binarysearchtre
         void minvalue(tree *n);
 };
 
+int BST::isempty(){//mengecek jika binarysearchtree kosong mengembalikan nilai 1 jika berisi mengembalikan nilai 0
+    if(root==NULL){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+void BST::findmin(){//fungsi untuk mencari nilai terkecil didalam binarysearchtree
+    tree *temp;
+    temp=root;//duplikasi dari root
+    if (isempty()==1)//jika binarysearchtree kosong 
+    {
+        cout<<"No Data"<<endl;//menampilkan pesan No Data
+    }
+    else{//jika binarysearchtree berisi menjalankan else
+        while (temp->left!=NULL)//jika tidak sama dengan NULL false jadi true
+        {
+            temp=temp->left;//menelusuri node sebelah kiri sampai ditemukan NULL
+        }
+        cout<<"Nilai terkecil adalah : "<<temp->value<<endl;//menampilkan nilai terkecil
+        cout<<endl;
+    }
+}
+
+
 int main(){
     
     return 0;
