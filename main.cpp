@@ -125,6 +125,46 @@ void BST::uruttree(tree *temp){//fungsi untuk menelusuri tree nilai kecil sampai
     }
 }
 
+void BST::insert(int i){//fungsi untuk mengawali proses penginputan data
+    tree *temp=new tree();
+    temp=root;
+    if(root=NULL){//jika root null nilai yang diinputkan akan menjadi root
+        root=new tree(i);
+        cout<<"nilai "<<i<<" menjadi root"<<endl;
+    }else{//jika tidak akan memanggil fungsi insertx
+        insertx(i,temp);
+    }
+}
+
+void BST::insertx(int i,tree *temp){//fungsi untuk melanjutkan proses penginputan data jika kondisi BST telah terisi sebelumnya
+    tree *kiri=new tree();//membuat objek kiri
+    tree *kanan=new tree();//membuat objek kanan
+    if(i<=(temp->value)){//jika nilai yang diinputkan kecil dari nilai node yang dibandingkan
+        kiri=temp;
+        if(kiri->left!=NULL){//jika node left child tidak sama dengan NULL
+            insertx(i,kiri->left);//node pindah
+        }
+        else{//jika nilai node telah berisi
+            kiri->left=new tree(i);//nilai diletakkan pada node left child
+            cout<<"nilai "<<i<<" masuk sebelah kiri "<<(kiri->value)<<endl;
+            kiri->left->left=NULL;
+            kiri->left->right=NULL;
+        }
+    }else{//jika nilai yang diinputkan besar dari nilai node yang dibandingkan
+        kanan=temp;
+        if(kanan->right!=NULL){//jika node right child tidak sama dengan NULL
+            insertx(i,kanan->right);//node pindah
+        }
+        else{
+            kanan->right=new tree(i);//nilai diletakkan pada node right child
+            cout<<"nilai "<<i<<"masuk sebelah kanan "<<(kanan->value)<<endl;
+            kanan->right->left=NULL;
+            kanan->right->right=NULL;
+        }
+    }
+}
+
+
 int main(){
     
     return 0;
