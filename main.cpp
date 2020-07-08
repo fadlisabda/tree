@@ -67,6 +67,21 @@ void BST::findmin(){//fungsi untuk mencari nilai terkecil didalam binarysearchtr
     }
 }
 
+void BST::findmax(){
+    tree *temp;
+    temp=root;
+    if(isempty()==1){
+        cout<<"No Data"<<endl;
+    }
+    else{
+        while (temp->right!=NULL)
+        {
+            temp=temp->right;
+        }
+        cout<<"Nilai terbesar adalah : "<<temp->value<<endl;
+        cout<<endl;
+    }
+}
 
 int main(){
     
