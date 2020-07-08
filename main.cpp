@@ -83,6 +83,34 @@ void BST::findmax(){//fungsi untuk mencari nilai terbesar didalam binarysearchtr
     }
 }
 
+void BST::searching(int i){//fungsi untuk mencari nilai node
+    tree *temp;
+    temp=root;//duplikasi dari root
+    int n=0;//untuk penanda nilai node ditemukan atau tidak
+    while (temp!=NULL)
+    {
+        if(temp->value==i){//jika nilai node binarysearchtree sama dengan nilainode yang dicari 
+        //maka n=1 dan break
+            n=1;
+            break;
+        }
+        if(i<(temp->value)){//jika nilainode yang dicari kecil dari nilai node binarysearchtree 
+        //maka proses pencarian dilakukan pada bagian node kiri
+            temp=temp->left;
+        }
+        else{//jika nilainode yang dicari besar dari nilai node binarysearchtree 
+        //maka proses pencarian dilakukan pada bagian node kanan
+            temp=temp->right;
+        }
+    }
+        if(n==1){//jika n==1 data ditemukan
+            cout<<"data ditemukan"<<endl;
+        }
+        else{//jika n tidak sama dengan 1 data tidak ditemukan
+            cout<<"data tidak ditemukan"<<endl;
+        }
+}
+
 int main(){
     
     return 0;
