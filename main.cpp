@@ -111,6 +111,20 @@ void BST::searching(int i){//fungsi untuk mencari nilai node
         }
 }
 
+void BST::urut(){//fungsi untuk menjadikan temp root dan memanggil fungsi uruttree
+    tree *temp;
+    temp=root;//penugasan variabel temp sebagai root
+    uruttree(temp);//pemanggilan fungsi utama untuk pengurutan
+}
+
+void BST::uruttree(tree *temp){//fungsi untuk menelusuri tree nilai kecil sampai nilai besar
+    if(temp!=NULL){
+        uruttree(temp->left);//rekursif dengan argument temp->left
+        cout<<"value :"<<temp->value<<endl;
+        uruttree(temp->right);//rekursif dengan argument temp->right
+    }
+}
+
 int main(){
     
     return 0;
