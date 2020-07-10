@@ -5,9 +5,9 @@ class tree //class tree sebagai penyimpan nilai pada node yang dibuat
 {
     public:
         int value;//untuk menyimpan nilai pada node yang bersangkutan
-        tree *left;//membuat nilai node pada bagian kiri akar
-        tree *right;//membuat nilai node pada bagian kanan akar
-        tree *parent;//membuat induk node pada akar
+        tree *left;//menunjuk alamat ke left child
+        tree *right;//menunjuk alamat ke right child
+        tree *parent;//menunjuk alamat ke parent
     tree(int v){//untuk membentuk objek dari class tree
         value=v;
         left=NULL;
@@ -164,6 +164,12 @@ void BST::insertx(int i,tree *temp){//fungsi untuk melanjutkan proses penginputa
     }
 }
 
+void BST::minvalue(tree*temp){//mencari nilai terkecil dari node tertentu
+    while (temp->left!=NULL)//melakukan penelusuran nilai node dikiri sampai ditemukannya node leaf(daun)
+    {
+        temp=temp->left;
+    }
+}
 
 int main(){
     
