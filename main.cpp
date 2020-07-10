@@ -186,6 +186,62 @@ void BST::transplanted(tree *del,tree *reply){//fungsi untuk menghapus node pare
     }
 }
 
+void BST::deletion(int i){
+    //successor = nilai node paling kecil
+    tree *y=NULL;//menyimpan nilai parent dari node tree *x
+    tree *x;
+    x=root;//sebagai root untuk mencari node yang akan dihapus
+    //pencarian posisi nilai yang akan dihapus
+    while ((x!=NULL)&&(x->value!=i)){//jika nilai tidak ditemukan diberi nilai null
+    //jika node yang akan dihapus ditemukan perintah berikutnya akan dijalankan
+        y=x;
+        if(i<x->value){ 
+            x=x->left;
+        }
+        else{
+            x=x->right;
+        }
+    }
+    if(x==NULL){
+        cout<<"Nilai yang akan dihapus tidak ditemukan"<<endl;
+    }else{
+        x->parent=y;
+        //pengecekan posisi node tersebut terhadap parent dan childnya
+    if(x->left==NULL){//jika left child bernilai null,akan digantikan dengan node right childnya
+        //right child akan menggantikan dan menghapus posisi dari node tree *x
+        transplanted(x,x->right);//kondisi 2
+    }else if(x->right==NULL){//jika right child bernilai null maka node tree*x,akan digantikan dengan node left childnya
+        //dengan melakukan proses yang sama akan dipanggil method transplanted
+        transplanted(x,x->left);//kondisi 2
+    }else{
+        //jika node yang akan dihapus memiliki left child dan right child
+        tree *min=x->right;//menyimpan nilai successor dari method minvalue(x->right)
+        //successor diambil dari hierarki node sebelah kanan dari node tree*x
+        min->parent=x;
+
+        tree *coba;
+        while (min->left!=NULL)
+        {
+            coba=min;
+            min=min->left;
+        }
+        tree *temp=min;
+        temp->parent=coba;
+        if(x->right!=min){//jika node successornya tidak berada disebelah kanan right child
+            transplanted(min,min->right);//kondisi 2.2 //menjadikan successor sebagai parent
+            temp->right=x->right;//dari right child
+            temp->right->parent=temp;
+        }
+        //jika node successor tepat berada sebelah kanan node yang akan dihapus
+        //langsung menggantikan node yang dihapus dengan node successornya 
+        transplanted(x,temp);//kondisi 2.1 //mengganti node yang akan dihapus
+        temp->left=x->left;//dengan node successor
+        temp->left->parent=temp;
+    }
+}
+}
+
+
 int main(){
     
     return 0;
