@@ -89,7 +89,7 @@ void BST::searching(int i){//fungsi untuk mencari nilai node
     int n=0;//untuk penanda nilai node ditemukan atau tidak
     while (temp!=NULL)
     {
-        if(temp->value==i){//jika nilai node binarysearchtree sama dengan nilainode yang dicari 
+        if(temp->value==i){//jika nilai node binarysearchtree yang ada sama dengan nilainode yang dicari 
         //maka n=1 dan break
             n=1;
             break;
