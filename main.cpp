@@ -5,8 +5,8 @@ class tree //class tree sebagai penyimpan nilai pada node yang dibuat
 {
     public:
         int value;//untuk menyimpan nilai pada node yang bersangkutan
-        tree *left;//membuat child node pada bagian kiri akar
-        tree *right;//membuat child node pada bagian kanan akar
+        tree *left;//membuat nilai node pada bagian kiri akar
+        tree *right;//membuat nilai node pada bagian kanan akar
         tree *parent;//membuat induk node pada akar
     tree(int v){//untuk membentuk objek dari class tree
         value=v;
