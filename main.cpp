@@ -157,7 +157,7 @@ void BST::insertx(int i,tree *temp){//fungsi untuk melanjutkan proses penginputa
         }
         else{
             kanan->right=new tree(i);//nilai diletakkan pada node right child
-            cout<<"nilai "<<i<<"masuk sebelah kanan "<<(kanan->value)<<endl;
+            cout<<"nilai "<<i<<" masuk sebelah kanan "<<(kanan->value)<<endl;
             kanan->right->left=NULL;
             kanan->right->right=NULL;
         }
@@ -247,14 +247,14 @@ void BST::display(tree *disp,int i){
     if(disp!=NULL){
         display(disp->right,i+1);
         cout<<endl;
-    }
+
     if(disp==root){
         cout<<"root->: ";
     }
     else{
-        for (k=0; k < i; k++)
-        {
-            cout<<"     ";
+        for (k=0; k < i; k++){
+                cout<<"     ";
+            }
         }
         cout<<disp->value;
         display(disp->left,i+1);
