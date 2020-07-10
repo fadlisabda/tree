@@ -128,7 +128,7 @@ void BST::uruttree(tree *temp){//fungsi untuk menelusuri tree nilai kecil sampai
 void BST::insert(int i){//fungsi untuk mengawali proses penginputan data
     tree *temp=new tree();
     temp=root;//objek temp adalah root
-    if(root=NULL){//jika root null nilai yang diinputkan akan menjadi root
+    if(root==NULL){//jika root null nilai yang diinputkan akan menjadi root
         root=new tree(i);
         cout<<"nilai "<<i<<" menjadi root"<<endl;
     }else{//jika tidak akan memanggil fungsi insertx
