@@ -171,6 +171,21 @@ void BST::minvalue(tree*temp){//mencari nilai terkecil dari node tertentu
     }
 }
 
+void BST::transplanted(tree *del,tree *reply){//fungsi untuk menghapus node parent menggantikannya dengan node child
+    //tree *del node yang akan dihapus
+    //tree *reply node child pengganti dari node yang akan dihapus
+    if(del->parent==NULL){//jika node parent yang akan dihapus null
+        root=reply;//node pengganti akan menjadi root
+    }else if(del==del->parent->left){//jika node yang akan dihapus left child dari parentnya
+        del->parent->left=reply;//node parent dihapus diganti dengan left child
+    }else{//jika node yang akan dihapus right child dari parentnya
+        del->parent->right=reply;//node parent dihapus diganti dengan right child
+    }
+    if(reply!=NULL){//jika node child pengganti dari node yang akan dihapus tidak sama dengan null
+        reply->parent=del->parent;//menghapus node parent
+    }
+}
+
 int main(){
     
     return 0;
