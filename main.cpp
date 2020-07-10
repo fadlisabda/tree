@@ -241,8 +241,80 @@ void BST::deletion(int i){
 }
 }
 
+//menampilkan keseluruhan dari node yang terdapat dalam BST secara lebih visual
+void BST::display(tree *disp,int i){
+    int k;
+    if(disp!=NULL){
+        display(disp->right,i+1);
+        cout<<endl;
+    }
+    if(disp==root){
+        cout<<"root->: ";
+    }
+    else{
+        for (k=0; k < i; k++)
+        {
+            cout<<"     ";
+        }
+        cout<<disp->value;
+        display(disp->left,i+1);
+    }
+}
 
 int main(){
-    
+    BST *st;//memanggil fungsi-fungsi yang terdapat didalam class BST
+    st=new BST();
+    int n;
+    char pilih;
+    cout<<"Operasi BST "<<endl;
+    cout<<"1. Input data"<<endl;
+    cout<<"2. cari data"<<endl;
+    cout<<"3. nilai terkecil"<<endl;
+    cout<<"4. nilai terbesar"<<endl;
+    cout<<"5. Urut Tree"<<endl;
+    cout<<"6. Hapus Node"<<endl;
+    cout<<"7. Display"<<endl;
+    cout<<"8. Exit"<<endl;
+    //dowhile dan switch agar dapat menggunakan fungsi yang ada di dalam class BST secara berulang
+    do
+    {
+        cout<<"Pilihan :";
+        cin>>pilih;
+        switch (pilih)
+        {
+        case '1':
+            cout<<"Masukkan angka : ";
+            cin>>n;
+            st->insert(n);
+            break;
+        case '2':
+            cout<<"Masukkan angka : ";
+            cin>>n;
+            st->searching(n);
+            break;
+        case '3':
+            st->findmin();
+            break;
+        case '4':
+            st->findmax();
+            break;
+        case '5':
+            st->urut();
+            break;
+        case '6':
+            cout<<"Masukkan angka :";
+            cin>>n;
+            st->deletion(n);
+            break;
+        case '7':
+            cout<<"Display BST :"<<endl;
+            st->display(root,1);
+            cout<<endl;
+            break;
+        default:
+            cout<<"salah pilih atau keluar";
+            break;
+        }
+    } while (pilih!='8');
     return 0;
 }
